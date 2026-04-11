@@ -5,9 +5,9 @@
 @section('content')
 <div class="stats-mini" style="grid-template-columns:repeat(4,1fr)">
     <div class="stat-mini"><div class="stat-mini-num" style="color:#0369a1">{{ $stats['total'] }}</div><div class="stat-mini-label">Total</div></div>
-    <div class="stat-mini"><div class="stat-mini-num" style="color:#16a34a">{{ $stats['Confirmed'] }}</div><div class="stat-mini-label">Confirmes</div></div>
+    <div class="stat-mini"><div class="stat-mini-num" style="color:#16a34a">{{ $stats['confirme'] }}</div><div class="stat-mini-label">Confirmes</div></div>
     <div class="stat-mini"><div class="stat-mini-num" style="color:#d97706">{{ $stats['en_attente'] }}</div><div class="stat-mini-label">Pending</div></div>
-    <div class="stat-mini"><div class="stat-mini-num" style="color:#dc2626">{{ $stats['Cancelled'] }}</div><div class="stat-mini-label">Annules</div></div>
+    <div class="stat-mini"><div class="stat-mini-num" style="color:#dc2626">{{ $stats['annule'] }}</div><div class="stat-mini-label">Annules</div></div>
 </div>
 <div class="card">
     <div class="card-header"><h2>Liste des Appointments</h2></div>
@@ -15,9 +15,9 @@
         <form method="GET" class="search-bar">
             <select name="statut" class="search-select">
                 <option value="">Tous les statuts</option>
-                <option value="confirme" @selected(request('statut')==='Confirmed')>Confirmes</option>
+                <option value="confirme" @selected(request('statut')==='confirme')>Confirmes</option>
                 <option value="en_attente" @selected(request('statut')==='en_attente')>Pending</option>
-                <option value="annule" @selected(request('statut')==='Cancelled')>Annules</option>
+                <option value="annule" @selected(request('statut')==='annule')>Annules</option>
             </select>
             <input type="date" name="date" value="{{ request('date') }}" class="search-input" style="max-width:180px">
             <button type="submit" class="btn-primary">Filter</button>
@@ -36,7 +36,7 @@
                 <td style="color:#64748b">{{ \Carbon\Carbon::parse($rdv->date_rdv)->format('d/m/Y') }}</td>
                 <td style="color:#64748b">{{ substr($rdv->heure_rdv,0,5) }}</td>
                 <td>
-                    @if($rdv->statut==='Confirmed') <span class="pill pill-green">Confirmed</span>
+                    @if($rdv->statut==='confirme') <span class="pill pill-green">Confirmed</span>
                     @elseif($rdv->statut==='en_attente') <span class="pill pill-amber">Pending</span>
                     @else <span class="pill pill-red">Cancelled</span> @endif
                 </td>
@@ -45,8 +45,8 @@
                         @csrf @method('PATCH')
                         <select name="statut" onchange="this.form.submit()" style="padding:6px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:12px;outline:none;background:#f8fafc;cursor:pointer">
                             <option value="en_attente" @selected($rdv->statut==='en_attente')>Pending</option>
-                            <option value="confirme" @selected($rdv->statut==='Confirmed')>Confirmer</option>
-                            <option value="annule" @selected($rdv->statut==='Cancelled')>Cancel</option>
+                            <option value="confirme" @selected($rdv->statut==='confirme')>Confirmer</option>
+                            <option value="annule" @selected($rdv->statut==='annule')>Cancel</option>
                         </select>
                     </form>
                 </td>

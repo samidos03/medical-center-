@@ -60,11 +60,11 @@
                 <td>
                     @php $colors=['admin'=>'pill-blue','medecin'=>'pill-teal','secretaire'=>'pill-amber','patient'=>'pill-purple']; @endphp
                     <span class="pill {{ $colors[$user->role] ?? 'pill-blue' }}">{{ ucfirst($user->role) }}</span>
-                    @if($user->role==='medecin' && $user->medecin?->Speciality)
-                        <div style="font-size:11px;color:#94a3b8;margin-top:2px">{{ $user->medecin->Speciality->nom }}</div>
+                    @if($user->role==='medecin' && $user->medecin?->specialite)
+                        <div style="font-size:11px;color:#94a3b8;margin-top:2px">{{ $user->medecin->specialite->nom }}</div>
                     @endif
                 </td>
-                <td style="color:#64748b">{{ $user->phone ?? '—' }}</td>
+                <td style="color:#64748b">{{ $user->phone ?? 'ï¿½' }}</td>
                 <td>
                     <form action="{{ route('admin.users.toggle', $user) }}" method="POST">
                         @csrf @method('PATCH')

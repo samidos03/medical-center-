@@ -62,9 +62,9 @@
             <div class="grid2">
                 <div class="field">
                     <label>Speciality</label>
-                    <select name="Speciality_id">
-                        @foreach($Specialities as $s)
-                            <option value="{{ $s->id }}" @selected(old('Speciality_id',$user->medecin?->Speciality_id)==$s->id)>{{ $s->nom }}</option>
+                    <select name="specialite_id">
+                        @foreach($specialites as $s)
+                            <option value="{{ $s->id }}" @selected(old('specialite_id',$user->medecin?->specialite_id)==$s->id)>{{ $s->nom }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -87,7 +87,7 @@
                 <div class="field">
                     <label>Gender</label>
                     <select name="gender">
-                        <option value="">—</option>
+                        <option value="">ï¿½</option>
                         <option value="M" @selected(old('gender',$user->patient?->gender)==='M')>Male</option>
                         <option value="F" @selected(old('gender',$user->patient?->gender)==='F')>Female</option>
                     </select>

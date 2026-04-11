@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Space - Bahjawa Medical Center</title>
+    <title>Doctor Space</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
     <style>
@@ -134,7 +134,7 @@
     <div class="topbar">
         <div>
             <h1>Hello, {{ auth()->user()->name }}</h1>
-            <p>{{ now()->format('l d F Y') }} — Bahjawa Medical Center</p>
+            <p>{{ now()->format('l d F Y') }}</p>
         </div>
         <a href="{{ route('medecin.consultations.create') }}" class="btn-primary">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>

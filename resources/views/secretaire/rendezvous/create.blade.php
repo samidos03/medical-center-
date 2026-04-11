@@ -167,7 +167,7 @@ function loadSlots() {
     if (!medecin || !date) return;
     document.getElementById('date_rdv').value = date;
     document.getElementById('slots-container').innerHTML = '<div class="no-slots">Loading...</div>';
-    fetch(`{{ route('secretaire.Availability.medecin') }}?medecin_id=${medecin}&date=${date}`)
+    fetch(`{{ route('secretaire.disponibilites.medecin') }}?medecin_id=${medecin}&date=${date}`)
         .then(r => r.json())
         .then(slots => {
             if (!slots.length) {
@@ -194,6 +194,7 @@ function selectSlot(time, el) {
 </script>
 </body>
 </html>
+
 
 
 

@@ -32,7 +32,7 @@
 <div class="header">
     <div>
         <h1>My Consultations</h1>
-        <p>{{ auth()->user()->name }} — Bahjawa Medical Center</p>
+        <p>{{ auth()->user()->name }} ï¿½ Bahjawa Medical Center</p>
     </div>
     <div style="display:flex;gap:10px">
         <a href="{{ route('medecin.consultations.create') }}" class="btn btn-green">+ New Consultation</a>
@@ -46,12 +46,12 @@
 
 <div class="card">
     <div class="card-header">
-        <h2>{{ $Consultations->total() }} Consultations</h2>
+        <h2>{{ $consultations->total() }} Consultations</h2>
     </div>
     <table>
         <thead><tr><th>Patient</th><th>Date</th><th>Summary</th><th>Prescription</th><th>Actions</th></tr></thead>
         <tbody>
-            @forelse($Consultations as $c)
+            @forelse($consultations as $c)
             <tr>
                 <td style="font-weight:600">{{ $c->patient->user->name ?? '-' }}</td>
                 <td>{{ \Carbon\Carbon::parse($c->date_consultation)->format('d/m/Y') }}</td>
@@ -77,8 +77,8 @@
             @endforelse
         </tbody>
     </table>
-    @if($Consultations->hasPages())
-    <div style="padding:14px 20px;border-top:1px solid #f1f5f9">{{ $Consultations->links() }}</div>
+    @if($consultations->hasPages())
+    <div style="padding:14px 20px;border-top:1px solid #f1f5f9">{{ $consultations->links() }}</div>
     @endif
 </div>
 </body>

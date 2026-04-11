@@ -134,8 +134,8 @@
                     <select name="statut" class="filter-select" onchange="this.form.submit()">
                         <option value="">All statuses</option>
                         <option value="en_attente" @selected(request('statut')==='en_attente')>Pending</option>
-                        <option value="confirme" @selected(request('statut')==='Confirmed')>Confirmed</option>
-                        <option value="annule" @selected(request('statut')==='Cancelled')>Cancelled</option>
+                        <option value="confirme" @selected(request('statut')==='confirme')>Confirmed</option>
+                        <option value="annule" @selected(request('statut')==='annule')>Cancelled</option>
                     </select>
                     @if(request('statut'))
                         <a href="{{ route('secretaire.rendezvous.index') }}" style="padding:8px 12px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:13px;color:#64748b;text-decoration:none">Reset</a>
@@ -163,7 +163,7 @@
                         <td>{{ \Carbon\Carbon::parse($rdv->date_rdv)->format('d/m/Y') }}</td>
                         <td style="font-weight:600;color:#993556">{{ substr($rdv->heure_rdv,0,5) }}</td>
                         <td>
-                            @if($rdv->statut==='Confirmed')<span class="pill pg">Confirmed</span>
+                            @if($rdv->statut==='confirme')<span class="pill pg">Confirmed</span>
                             @elseif($rdv->statut==='en_attente')<span class="pill pa">Pending</span>
                             @else<span class="pill pr">Cancelled</span>@endif
                         </td>

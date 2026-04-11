@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secretary Space - Bahjawa Medical Center</title>
+    <title>Secretary Space</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
     <style>
@@ -124,7 +124,7 @@
     <div class="topbar">
         <div>
             <h1>Hello, {{ auth()->user()->name }}</h1>
-            <p>{{ now()->format('l d F Y') }} — Bahjawa Medical Center</p>
+            <p>{{ now()->format('l d F Y') }}</p>
         </div>
         <div style="font-size:13px;color:#64748b;background:#f8fafc;padding:6px 14px;border-radius:10px;border:1px solid #e2e8f0">
             {{ now()->format('d/m/Y') }}
@@ -195,7 +195,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3>Today's Appointments — {{ now()->format('d/m/Y') }}</h3>
+                <h3>Today's Appointments ï¿½ {{ now()->format('d/m/Y') }}</h3>
             </div>
             <table>
                 <thead><tr><th>Patient</th><th>Doctor</th><th>Time</th><th>Status</th></tr></thead>

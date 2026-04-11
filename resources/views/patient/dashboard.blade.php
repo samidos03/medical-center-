@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Space - Bahjawa Medical Center</title>
+    <title>Patient Space</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         *{box-sizing:border-box;margin:0;padding:0}
@@ -117,7 +117,7 @@
     <div class="topbar">
         <div>
             <h1>Hello, {{ auth()->user()->name }}</h1>
-            <p>{{ now()->format('l d F Y') }} — Bahjawa Medical Center</p>
+            <p>{{ now()->format('l d F Y') }}</p>
         </div>
         <div style="font-size:13px;color:#64748b;background:#f8fafc;padding:6px 14px;border-radius:10px;border:1px solid #e2e8f0">
             {{ now()->format('d/m/Y') }}

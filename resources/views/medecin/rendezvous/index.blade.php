@@ -136,8 +136,8 @@
         <div class="stats-grid">
             <div class="stat"><div class="stat-num" style="color:#0369a1">{{ $stats['total'] }}</div><div class="stat-label">Total</div></div>
             <div class="stat"><div class="stat-num" style="color:#d97706">{{ $stats['en_attente'] }}</div><div class="stat-label">Pending</div></div>
-            <div class="stat"><div class="stat-num" style="color:#16a34a">{{ $stats['Confirmed'] }}</div><div class="stat-label">Confirmed</div></div>
-            <div class="stat"><div class="stat-num" style="color:#dc2626">{{ $stats['Cancelled'] }}</div><div class="stat-label">Cancelled</div></div>
+            <div class="stat"><div class="stat-num" style="color:#16a34a">{{ $stats['confirme'] }}</div><div class="stat-label">Confirmed</div></div>
+            <div class="stat"><div class="stat-num" style="color:#dc2626">{{ $stats['annule'] }}</div><div class="stat-label">Cancelled</div></div>
         </div>
 
         <div class="card">
@@ -147,8 +147,8 @@
                     <select name="statut" class="filter-select" onchange="this.form.submit()">
                         <option value="">All statuses</option>
                         <option value="en_attente" @selected(request('statut')==='en_attente')>Pending</option>
-                        <option value="confirme" @selected(request('statut')==='Confirmed')>Confirmed</option>
-                        <option value="annule" @selected(request('statut')==='Cancelled')>Cancelled</option>
+                        <option value="confirme" @selected(request('statut')==='confirme')>Confirmed</option>
+                        <option value="annule" @selected(request('statut')==='annule')>Cancelled</option>
                     </select>
                     <input type="date" name="date" value="{{ request('date') }}" class="filter-input" onchange="this.form.submit()">
                     @if(request()->hasAny(['statut','date']))
@@ -183,7 +183,7 @@
                         <td>{{ \Carbon\Carbon::parse($rdv->date_rdv)->format('d/m/Y') }}</td>
                         <td style="font-weight:600;color:#059669">{{ substr($rdv->heure_rdv,0,5) }}</td>
                         <td>
-                            @if($rdv->statut==='Confirmed')<span class="pill pg">Confirmed</span>
+                            @if($rdv->statut==='confirme')<span class="pill pg">Confirmed</span>
                             @elseif($rdv->statut==='en_attente')<span class="pill pa">Pending</span>
                             @else<span class="pill pr">Cancelled</span>@endif
                         </td>
@@ -198,7 +198,7 @@
                                     </button>
                                 </form>
                                 @endif
-                                @if($rdv->statut !== 'Cancelled')
+                                @if($rdv->statut !== 'annule')
                                 <form action="{{ route('medecin.rendezvous.annuler', $rdv) }}" method="POST" onsubmit="return confirm('Cancel this appointment?')">
                                     @csrf @method('PATCH')
                                     <button type="submit" class="btn-cancel">
@@ -207,7 +207,7 @@
                                     </button>
                                 </form>
                                 @endif
-                                @if($rdv->statut==='Confirmed')
+                                @if($rdv->statut==='confirme')
                                 <a href="{{ route('medecin.consultations.create') }}" class="btn-primary" style="padding:6px 10px;font-size:11px">
                                     + Consultation
                                 </a>

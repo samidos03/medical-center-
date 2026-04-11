@@ -158,15 +158,15 @@
                     @else
                         <span class="status-available"><span class="dot" style="background:#16a34a"></span>Available</span>
                     @endif
-                    @if($m->Availability->isEmpty())
+                    @if($m->disponibilites->isEmpty())
                         <span style="background:#f8fafc;color:#94a3b8;border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;border:1px solid #e2e8f0">No schedule defined</span>
                     @else
-                        <span class="rdv-badge">{{ $m->Availability->count() }} slot(s)</span>
+                        <span class="rdv-badge">{{ $m->disponibilites->count() }} slot(s)</span>
                     @endif
                 </div>
             </div>
 
-            @if($m->Availability->isEmpty())
+            @if($m->disponibilites->isEmpty())
                 <div class="empty" style="padding:24px">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width:32px;height:32px;margin:0 auto 8px;opacity:.3"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     <p>No availability defined for this doctor.</p>
@@ -175,7 +175,7 @@
                 <div class="planning-grid">
                     @foreach(['lundi','mardi','mercredi','jeudi','vendredi','samedi'] as $jour)
                         @php
-                            $dayDispos = $m->Availability->where('jour', $jour)->values();
+                            $dayDispos = $m->disponibilites->where('jour', $jour)->values();
                             $hasSlots = $dayDispos->isNotEmpty();
                         @endphp
                         <div class="day-col">
@@ -212,6 +212,7 @@ function filterDoctors(v) {
 </script>
 </body>
 </html>
+
 
 
 

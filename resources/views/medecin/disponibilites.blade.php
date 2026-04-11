@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Availability - Bahjawa Medical</title>
+    <title>Disponibilites - Bahjawa Medical</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         *{box-sizing:border-box;margin:0;padding:0}
@@ -117,7 +117,7 @@
 
 <div class="main">
     <div class="topbar">
-        <h1>Mes Availability</h1>
+        <h1>Mes Disponibilites</h1>
         <p>Definissez vos horaires de consultation</p>
     </div>
     <div class="content">
@@ -157,14 +157,14 @@
             </div>
 
             <div class="card">
-                <div class="section">Mes creneaux ({{ $Availability->count() }})</div>
-                @if($Availability->isEmpty())
+                <div class="section">Mes creneaux ({{ $disponibilites->count() }})</div>
+                @if($disponibilites->isEmpty())
                     <div class="empty">Aucun creneau defini.</div>
                 @else
-                    @foreach($Availability as $d)
+                    @foreach($disponibilites as $d)
                     <div class="dispo-item">
                         <span class="dispo-jour">{{ ucfirst($d->jour) }}</span>
-                        <span class="dispo-hours">{{ substr($d->heure_debut,0,5) }} — {{ substr($d->heure_fin,0,5) }}</span>
+                        <span class="dispo-hours">{{ substr($d->heure_debut,0,5) }} ï¿½ {{ substr($d->heure_fin,0,5) }}</span>
                         <form method="POST" action="{{ route('medecin.disponibilites.destroy', $d) }}">
                             @csrf @method('DELETE')
                             <button type="submit" class="btn-del" onclick="return confirm('Supprimer ?')">Delete</button>
@@ -177,7 +177,7 @@
 
         @php
             $jours = ['lundi','mardi','mercredi','jeudi','vendredi','samedi'];
-            $dispoByJour = $Availability->groupBy('jour');
+            $dispoByJour = $disponibilites->groupBy('jour');
         @endphp
         <div class="card" style="margin-top:20px">
             <div class="section">Vue hebdomadaire</div>

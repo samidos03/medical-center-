@@ -99,7 +99,7 @@
 {{-- GRAPHIQUE Main - RDV + PATIENTS PAR MOIS --}}
 <div class="chart-card chart-full" style="margin-bottom:20px">
     <h3>Evolution mensuelle</h3>
-    <p class="chart-sub">Appointments et nouveaux patients — Year {{ date('Y') }}</p>
+    <p class="chart-sub">Appointments et nouveaux patients ï¿½ Year {{ date('Y') }}</p>
     <canvas id="evolutionChart" height="70"></canvas>
 </div>
 
@@ -203,7 +203,7 @@
             <div class="avatar" style="background:#f0fdf4;color:#059669">{{ strtoupper(substr($m->user->name??'?',0,2)) }}</div>
             <div class="dr-info">
                 <div class="dr-name">{{ $m->user->name??'-' }}</div>
-                <div class="dr-spec">{{ $m->Speciality->nom??'-' }}</div>
+                <div class="dr-spec">{{ $m->specialite->nom??'-' }}</div>
             </div>
             <span class="rdv-badge">{{ $m->rendezvous_count }} RDV</span>
         </div>

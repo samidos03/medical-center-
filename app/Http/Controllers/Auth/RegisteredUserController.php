@@ -10,21 +10,29 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
     public function create(): View
     {
+        if (auth()->check() && auth()->user()->role !== 'patient') {
+            abort(403);
+        }
         return view('auth.register');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        if (auth()->check() && auth()->user()->role !== 'patient') {
+            abort(403);
+        }
+
+        $request->merge(['email' => strtolower($request->email)]);
+
         $request->validate([
             'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email'    => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -33,11 +41,11 @@ class RegisteredUserController extends Controller
             'email'    => $request->email,
             'password' => Hash::make($request->password),
             'role'     => 'patient',
+            'actif'    => true,
         ]);
 
         Patient::create([
-            'user_id'   => $user->id,
-            'telephone' => '',
+            'user_id' => $user->id,
         ]);
 
         event(new Registered($user));
