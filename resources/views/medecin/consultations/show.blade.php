@@ -26,11 +26,11 @@
 <div style="max-width:700px;margin:0 auto">
     <div class="header">
         <div>
-            <a href="{{ route('medecin.consultations.index') }}" class="back">? Retour</a>
-            <h1>Consultation — {{ $consultation->patient->user->name }}</h1>
+            <a href="{{ route('medecin.consultations.index') }}" class="back">&larr; Retour</a>
+            <h1>Consultation - {{ $consultation->patient->user->name }}</h1>
         </div>
-        @if($consultation->Prescription)
-            <a href="{{ route('medecin.Prescriptions.pdf', $consultation->Prescription) }}" class="btn btn-green">
+        @if($consultation->ordonnance)
+            <a href="{{ route('medecin.ordonnances.pdf', $consultation->ordonnance) }}" class="btn btn-green">
                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 Download PDF
             </a>
@@ -46,13 +46,13 @@
         <div class="section">Summary</div>
         <div class="content-box">{{ $consultation->compte_rendu }}</div>
     </div>
-    @if($consultation->Prescription)
+    @if($consultation->ordonnance)
     <div class="card">
         <div class="section">Prescription</div>
-        <div class="content-box">{{ $consultation->Prescription->contenu }}</div>
+        <div class="content-box">{{ $consultation->ordonnance->contenu }}</div>
         <div style="margin-top:14px">
-            <a href="{{ route('medecin.Prescriptions.pdf', $consultation->Prescription) }}" class="btn btn-green">
-                Download l Prescription PDF
+            <a href="{{ route('medecin.ordonnances.pdf', $consultation->ordonnance) }}" class="btn btn-green">
+                Download Prescription PDF
             </a>
         </div>
     </div>
@@ -60,11 +60,3 @@
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-

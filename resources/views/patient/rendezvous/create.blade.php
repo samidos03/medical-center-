@@ -121,7 +121,7 @@
             Back
         </a>
         @if($errors->any())
-            <div class="alert-error">@foreach($errors->all() as $e)<div>• {{ $e }}</div>@endforeach</div>
+            <div class="alert-error">@foreach($errors->all() as $e)<div>ï¿½ {{ $e }}</div>@endforeach</div>
         @endif
         <form method="POST" action="{{ route('patient.rendezvous.store') }}">
             @csrf
@@ -133,7 +133,7 @@
                         <option value="">Select a doctor...</option>
                         @foreach($medecins as $m)
                             <option value="{{ $m->id }}" @selected(old('medecin_id')==$m->id)>
-                                {{ $m->user->name }} — {{ $m->Speciality->nom??'General' }}
+                                {{ $m->user->name }} ï¿½ {{ $m->specialite->nom??'General' }}
                             </option>
                         @endforeach
                     </select>

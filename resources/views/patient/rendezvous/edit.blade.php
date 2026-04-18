@@ -126,7 +126,7 @@
                 <div class="form-section">Update Appointment</div>
                 <div style="background:#f8fafc;border-radius:10px;padding:14px;margin-bottom:16px;font-size:13px">
                     <strong>Doctor:</strong> {{ $rendezvous->medecin->user->name }}
-                    — {{ $rendezvous->medecin->Speciality->nom??'General' }}
+                    ï¿½ {{ $rendezvous->medecin->specialite->nom??'General' }}
                 </div>
                 <div class="grid2">
                     <div class="field">

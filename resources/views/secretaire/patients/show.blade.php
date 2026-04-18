@@ -174,18 +174,18 @@
                 <div class="section">Personal Information</div>
                 <div class="info-row"><span class="info-lbl">Full Name</span><span class="info-val">{{ $patient->user->name }}</span></div>
                 <div class="info-row"><span class="info-lbl">Email</span><span class="info-val" style="font-size:12px">{{ $patient->user->email }}</span></div>
-                <div class="info-row"><span class="info-lbl">Phone</span><span class="info-val">{{ $patient->user->phone??'—' }}</span></div>
-                <div class="info-row"><span class="info-lbl">Address</span><span class="info-val">{{ $patient->user->address??'—' }}</span></div>
-                <div class="info-row"><span class="info-lbl">Birth Date</span><span class="info-val">{{ $patient->birth_date?->format('d/m/Y')??'—' }}</span></div>
-                <div class="info-row"><span class="info-lbl">Gender</span><span class="info-val">{{ $patient->gender==='M'?'Male':($patient->gender==='F'?'Female':'—') }}</span></div>
+                <div class="info-row"><span class="info-lbl">Phone</span><span class="info-val">{{ $patient->user->phone??'ï¿½' }}</span></div>
+                <div class="info-row"><span class="info-lbl">Address</span><span class="info-val">{{ $patient->user->address??'ï¿½' }}</span></div>
+                <div class="info-row"><span class="info-lbl">Birth Date</span><span class="info-val">{{ $patient->birth_date?->format('d/m/Y')??'ï¿½' }}</span></div>
+                <div class="info-row"><span class="info-lbl">Gender</span><span class="info-val">{{ $patient->gender==='M'?'Male':($patient->gender==='F'?'Female':'ï¿½') }}</span></div>
             </div>
             <div class="card">
                 <div class="section">Medical Information</div>
-                <div class="info-row"><span class="info-lbl">Blood Type</span><span class="info-val" style="color:#dc2626">{{ $patient->blood_type??'—' }}</span></div>
+                <div class="info-row"><span class="info-lbl">Blood Type</span><span class="info-val" style="color:#dc2626">{{ $patient->blood_type??'ï¿½' }}</span></div>
                 <div class="info-row"><span class="info-lbl">Allergies</span><span class="info-val">{{ $patient->Allergies??'None' }}</span></div>
                 <div class="info-row"><span class="info-lbl">Medical Conditions</span><span class="info-val">{{ $patient->medical_Conditions??'None' }}</span></div>
-                <div class="info-row"><span class="info-lbl">Emergency Contact</span><span class="info-val">{{ $patient->emergency_contact??'—' }}</span></div>
-                <div class="info-row"><span class="info-lbl">Emergency Phone</span><span class="info-val">{{ $patient->emergency_phone??'—' }}</span></div>
+                <div class="info-row"><span class="info-lbl">Emergency Contact</span><span class="info-val">{{ $patient->emergency_contact??'ï¿½' }}</span></div>
+                <div class="info-row"><span class="info-lbl">Emergency Phone</span><span class="info-val">{{ $patient->emergency_phone??'ï¿½' }}</span></div>
                 <div class="info-row"><span class="info-lbl">Account Status</span>
                     <span class="info-val">
                         @if($patient->user->actif)<span class="pill pg">Active</span>
@@ -216,8 +216,8 @@
                 <tbody>
                     @forelse($patient->rendezvous->sortByDesc('date_rdv') as $rdv)
                     <tr>
-                        <td style="font-weight:500">{{ $rdv->medecin->user->name??'—' }}</td>
-                        <td style="color:#64748b">{{ $rdv->medecin->Speciality->nom??'—' }}</td>
+                        <td style="font-weight:500">{{ $rdv->medecin->user->name??'ï¿½' }}</td>
+                        <td style="color:#64748b">{{ $rdv->medecin->specialite->nom??'ï¿½' }}</td>
                         <td>{{ \Carbon\Carbon::parse($rdv->date_rdv)->format('d/m/Y') }}</td>
                         <td style="font-weight:600;color:#993556">{{ substr($rdv->heure_rdv,0,5) }}</td>
                         <td>
@@ -227,13 +227,13 @@
                         </td>
                         <td>
                             @if($rdv->consultation)<span class="pill pg">Done</span>
-                            @else<span style="color:#94a3b8">—</span>@endif
+                            @else<span style="color:#94a3b8">ï¿½</span>@endif
                         </td>
                         <td>
                             @if($rdv->consultation?->Prescription)
                                 <span class="pill pg">Available</span>
                             @else
-                                <span style="color:#94a3b8">—</span>
+                                <span style="color:#94a3b8">ï¿½</span>
                             @endif
                         </td>
                     </tr>

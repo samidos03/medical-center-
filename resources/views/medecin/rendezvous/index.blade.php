@@ -111,7 +111,7 @@
                 <div class="user-avatar">{{ strtoupper(substr(auth()->user()->name,0,2)) }}</div>
                 <div>
                     <div class="user-name">{{ auth()->user()->name }}</div>
-                    <div class="user-role">{{ auth()->user()->medecin?->Speciality?->nom ?? 'Doctor' }}</div>
+                    <div class="user-role">{{ auth()->user()->medecin?->specialite?->nom ?? 'Doctor' }}</div>
                 </div>
             </div>
             <form method="POST" action="{{ route('logout') }}">

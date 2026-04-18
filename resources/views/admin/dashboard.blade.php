@@ -1,6 +1,6 @@
-@extends('admin.layouts.app')
+﻿@extends('admin.layouts.app')
 @section('title', 'Dashboard')
-@section('subtitle', 'General Overview - Bahjawa Medical Center')
+@section('subtitle', 'General Overview -')
 
 @push('styles')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>

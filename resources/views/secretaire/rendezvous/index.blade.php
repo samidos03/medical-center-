@@ -159,7 +159,7 @@
                     <tr>
                         <td style="font-weight:600">{{ $rdv->patient->user->name??'-' }}</td>
                         <td>{{ $rdv->medecin->user->name??'-' }}</td>
-                        <td style="color:#64748b">{{ $rdv->medecin->Speciality->nom??'-' }}</td>
+                        <td style="color:#64748b">{{ $rdv->medecin->specialite->nom??'-' }}</td>
                         <td>{{ \Carbon\Carbon::parse($rdv->date_rdv)->format('d/m/Y') }}</td>
                         <td style="font-weight:600;color:#993556">{{ substr($rdv->heure_rdv,0,5) }}</td>
                         <td>

@@ -41,8 +41,8 @@
         <div class="logo-sub">Plateforme de Gestion Medicale</div>
     </div>
     <div class="header-right">
-        <div>Prescription N° {{ str_pad($Prescription->id, 4, '0', STR_PAD_LEFT) }}</div>
-        <div>Date : {{ \Carbon\Carbon::parse($Prescription->date_creation)->format('d/m/Y') }}</div>
+        <div>Prescription Nï¿½ {{ str_pad($ordonnance->id, 4, '0', STR_PAD_LEFT) }}</div>
+        <div>Date : {{ \Carbon\Carbon::parse($ordonnance->date_creation)->format('d/m/Y') }}</div>
     </div>
 </div>
 
@@ -53,20 +53,20 @@
         <tr>
             <td style="width:50%;background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:14px;vertical-align:top">
                 <div class="info-label">Patient</div>
-                <div class="info-value">{{ $Prescription->consultation->patient->user->name }}</div>
-                <div class="info-sub">{{ $Prescription->consultation->patient->user->email }}</div>
-                @if($Prescription->consultation->patient->birth_date)
-                <div class="info-sub">Ne(e) le : {{ \Carbon\Carbon::parse($Prescription->consultation->patient->birth_date)->format('d/m/Y') }}</div>
+                <div class="info-value">{{ $ordonnance->consultation->patient->user->name }}</div>
+                <div class="info-sub">{{ $ordonnance->consultation->patient->user->email }}</div>
+                @if($ordonnance->consultation->patient->birth_date)
+                <div class="info-sub">Ne(e) le : {{ \Carbon\Carbon::parse($ordonnance->consultation->patient->birth_date)->format('d/m/Y') }}</div>
                 @endif
-                @if($Prescription->consultation->patient->blood_type)
-                <div class="info-sub">Blood Type : {{ $Prescription->consultation->patient->blood_type }}</div>
+                @if($ordonnance->consultation->patient->blood_type)
+                <div class="info-sub">Blood Type : {{ $ordonnance->consultation->patient->blood_type }}</div>
                 @endif
             </td>
             <td style="width:50%;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;vertical-align:top">
                 <div class="info-label">Medecin prescripteur</div>
-                <div class="info-value">{{ $Prescription->consultation->medecin->user->name }}</div>
-                <div class="info-sub">{{ $Prescription->consultation->medecin->Speciality->nom ?? 'Medecin generaliste' }}</div>
-                <div class="info-sub">{{ $Prescription->consultation->medecin->Phone ?? '' }}</div>
+                <div class="info-value">{{ $ordonnance->consultation->medecin->user->name }}</div>
+                <div class="info-sub">{{ $ordonnance->consultation->medecin->specialite->nom ?? 'Medecin generaliste' }}</div>
+                <div class="info-sub">{{ $ordonnance->consultation->medecin->telephone ?? '' }}</div>
             </td>
         </tr>
     </table>
@@ -74,14 +74,14 @@
     <div class="section">
         <div class="section-title">Informations de la consultation</div>
         <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px">
-            <div class="meta-row"><span class="meta-key">Date consultation :</span><span class="meta-val">{{ \Carbon\Carbon::parse($Prescription->consultation->date_consultation)->format('d/m/Y') }}</span></div>
-            <div class="meta-row"><span class="meta-key">Summary :</span><span class="meta-val">{{ Str::limit($Prescription->consultation->compte_rendu, 100) }}</span></div>
+            <div class="meta-row"><span class="meta-key">Date consultation :</span><span class="meta-val">{{ \Carbon\Carbon::parse($ordonnance->consultation->date_consultation)->format('d/m/Y') }}</span></div>
+            <div class="meta-row"><span class="meta-key">Summary :</span><span class="meta-val">{{ Str::limit($ordonnance->consultation->compte_rendu, 100) }}</span></div>
         </div>
     </div>
 
     <div class="section">
         <div class="section-title">Prescription medicale</div>
-        <div class="content-box">{{ $Prescription->contenu }}</div>
+        <div class="content-box">{{ $ordonnance->contenu }}</div>
     </div>
 
     <div class="footer">
@@ -93,8 +93,8 @@
         <div class="footer-right">
             <div class="signature-box">
                 <div style="height:40px;border-bottom:1px solid #e2e8f0;margin-bottom:8px"></div>
-                <div class="signature-name">{{ $Prescription->consultation->medecin->user->name }}</div>
-                <div class="signature-spec">{{ $Prescription->consultation->medecin->Speciality->nom ?? '' }}</div>
+                <div class="signature-name">{{ $ordonnance->consultation->medecin->user->name }}</div>
+                <div class="signature-spec">{{ $ordonnance->consultation->medecin->specialite->nom ?? '' }}</div>
             </div>
         </div>
     </div>

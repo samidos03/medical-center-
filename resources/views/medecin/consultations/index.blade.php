@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
 <div class="header">
     <div>
         <h1>My Consultations</h1>
-        <p>{{ auth()->user()->name }} � Bahjawa Medical Center</p>
+        <p>{{ auth()->user()->name }}</p>
     </div>
     <div style="display:flex;gap:10px">
         <a href="{{ route('medecin.consultations.create') }}" class="btn btn-green">+ New Consultation</a>

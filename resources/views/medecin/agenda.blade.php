@@ -102,7 +102,7 @@
                 <div class="user-avatar">{{ strtoupper(substr(auth()->user()->name,0,2)) }}</div>
                 <div>
                     <div class="user-name">{{ auth()->user()->name }}</div>
-                    <div class="user-role">{{ auth()->user()->medecin?->Speciality?->nom ?? 'Medecin' }}</div>
+                    <div class="user-role">{{ auth()->user()->medecin?->specialite?->nom ?? 'Medecin' }}</div>
                 </div>
             </div>
             <form method="POST" action="{{ route('logout') }}">
@@ -174,7 +174,7 @@
         @if($rdvs->isNotEmpty())
         <div style="background:white;border-radius:18px;border:1px solid #e2e8f0;overflow:hidden">
             <div style="padding:18px 20px;border-bottom:1px solid #f1f5f9;font-size:15px;font-weight:700;color:#0f172a">
-                RDV ce mois — {{ $rdvs->flatten()->count() }} au total
+                RDV ce mois ï¿½ {{ $rdvs->flatten()->count() }} au total
             </div>
             <table style="width:100%;border-collapse:collapse">
                 <thead><tr>

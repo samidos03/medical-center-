@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
 <body>
 <div style="max-width:700px;margin:0 auto">
     <div class="header">
-        <a href="{{ route('medecin.consultations.index') }}" class="back">? Retour</a>
+        <a href="{{ route('medecin.consultations.index') }}" class="back">← Retour</a>
         <h1>New Consultation</h1>
     </div>
     <form method="POST" action="{{ route('medecin.consultations.store') }}">
@@ -40,7 +40,7 @@
                     <option value="">-- Choisir un RDV confirme --</option>
                     @foreach($rdvs as $rdv)
                         <option value="{{ $rdv->id }}" @selected(old('rendez_vous_id')==$rdv->id)>
-                            {{ $rdv->patient->user->name }} � {{ \Carbon\Carbon::parse($rdv->date_rdv)->format('d/m/Y') }} a {{ substr($rdv->heure_rdv,0,5) }}
+                            {{ $rdv->patient->user->name }} - {{ \Carbon\Carbon::parse($rdv->date_rdv)->format('d/m/Y') }} a {{ substr($rdv->heure_rdv,0,5) }}
                         </option>
                     @endforeach
                 </select>
@@ -59,7 +59,7 @@
             <div class="section">Prescription (optionnel)</div>
             <div class="field">
                 <label>Prescription medicale</label>
-                <textarea name="contenu_Prescription" placeholder="Ex:&#10;- Paracetamol 500mg : 1 comprime 3 fois par jour pendant 5 jours&#10;- Ibuprofene 400mg : 1 comprime matin et soir pendant 3 jours&#10;...">{{ old('contenu_Prescription') }}</textarea>
+                <textarea name="contenu_ordonnance" placeholder="Ex:&#10;- Paracetamol 500mg : 1 comprime 3 fois par jour pendant 5 jours&#10;- Ibuprofene 400mg : 1 comprime matin et soir pendant 3 jours&#10;...">{{ old('contenu_Prescription') }}</textarea>
             </div>
         </div>
         <div style="display:flex;gap:10px">
