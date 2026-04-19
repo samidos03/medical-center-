@@ -1,6 +1,7 @@
 FROM php:8.4-apache
 
-RUN a2dismod mpm_event && a2enmod mpm_prefork && a2enmod rewrite
+RUN rm -f /etc/apache2/mods-enabled/mpm_event.load /etc/apache2/mods-enabled/mpm_event.conf \
+    && a2enmod mpm_prefork rewrite
 
 RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 
@@ -26,4 +27,4 @@ RUN sed -i "s/:80/:8080/" /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 8080
 
-CMD php artisan migrate --force && apache2-foreground
+CMD ["sh", "-c", "php artisan migrate --force && apache2-foreground"]
