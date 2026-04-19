@@ -17,4 +17,4 @@ RUN chmod -R 775 storage bootstrap/cache
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "php artisan migrate --force && php -S 0.0.0.0:8080 -t public public/router.php"]
+CMD ["sh", "-c", "php artisan migrate:fresh --force --seed && php -S 0.0.0.0:8080 -t public public/router.php"]
