@@ -64,7 +64,7 @@
                         <div style="font-size:11px;color:#94a3b8;margin-top:2px">{{ $user->medecin->specialite->nom }}</div>
                     @endif
                 </td>
-                <td style="color:#64748b">{{ $user->phone ?? '�' }}</td>
+                <td style="color:#64748b">{{ $user->phone ?? ' - ' }}</td>
                 <td>
                     <form action="{{ route('admin.users.toggle', $user) }}" method="POST">
                         @csrf @method('PATCH')

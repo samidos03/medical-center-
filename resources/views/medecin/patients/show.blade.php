@@ -74,12 +74,12 @@
                     <td>
                         @if($rdv->consultation)
                             <a href="{{ route('medecin.consultations.show', $rdv->consultation) }}" class="btn btn-blue" style="padding:5px 10px;font-size:11px">View</a>
-                        @else <span style="color:#94a3b8">�</span> @endif
+                        @else <span style="color:#94a3b8"> - </span> @endif
                     </td>
                     <td>
                         @if($rdv->consultation?->Prescription)
                             <a href="{{ route('medecin.Prescriptions.pdf', $rdv->consultation->Prescription) }}" class="btn btn-green" style="padding:5px 10px;font-size:11px">PDF</a>
-                        @else <span style="color:#94a3b8">�</span> @endif
+                        @else <span style="color:#94a3b8"> - </span> @endif
                     </td>
                 </tr>
                 @empty

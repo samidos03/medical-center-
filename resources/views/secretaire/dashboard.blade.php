@@ -195,7 +195,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3>Today's Appointments � {{ now()->format('d/m/Y') }}</h3>
+                <h3>Today's Appointments  -  {{ now()->format('d/m/Y') }}</h3>
             </div>
             <table>
                 <thead><tr><th>Patient</th><th>Doctor</th><th>Time</th><th>Status</th></tr></thead>

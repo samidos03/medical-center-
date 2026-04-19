@@ -99,7 +99,7 @@
 {{-- GRAPHIQUE Main - RDV + PATIENTS PAR MOIS --}}
 <div class="chart-card chart-full" style="margin-bottom:20px">
     <h3>Evolution mensuelle</h3>
-    <p class="chart-sub">Appointments et nouveaux patients � Year {{ date('Y') }}</p>
+    <p class="chart-sub">Appointments et nouveaux patients  -  Year {{ date('Y') }}</p>
     <canvas id="evolutionChart" height="70"></canvas>
 </div>
 

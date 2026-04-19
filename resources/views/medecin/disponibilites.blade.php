@@ -164,7 +164,7 @@
                     @foreach($disponibilites as $d)
                     <div class="dispo-item">
                         <span class="dispo-jour">{{ ucfirst($d->jour) }}</span>
-                        <span class="dispo-hours">{{ substr($d->heure_debut,0,5) }} � {{ substr($d->heure_fin,0,5) }}</span>
+                        <span class="dispo-hours">{{ substr($d->heure_debut,0,5) }}  -  {{ substr($d->heure_fin,0,5) }}</span>
                         <form method="POST" action="{{ route('medecin.disponibilites.destroy', $d) }}">
                             @csrf @method('DELETE')
                             <button type="submit" class="btn-del" onclick="return confirm('Supprimer ?')">Delete</button>

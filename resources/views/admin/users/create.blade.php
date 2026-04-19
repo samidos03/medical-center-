@@ -82,7 +82,7 @@
                 <div class="field">
                     <label>Gender</label>
                     <select name="gender">
-                        <option value="">�</option>
+                        <option value=""> - </option>
                         <option value="M" @selected(old('gender')==='M')>Male</option>
                         <option value="F" @selected(old('gender')==='F')>Female</option>
                     </select>

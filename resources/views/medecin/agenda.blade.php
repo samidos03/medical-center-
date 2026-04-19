@@ -174,7 +174,7 @@
         @if($rdvs->isNotEmpty())
         <div style="background:white;border-radius:18px;border:1px solid #e2e8f0;overflow:hidden">
             <div style="padding:18px 20px;border-bottom:1px solid #f1f5f9;font-size:15px;font-weight:700;color:#0f172a">
-                RDV ce mois � {{ $rdvs->flatten()->count() }} au total
+                RDV ce mois  -  {{ $rdvs->flatten()->count() }} au total
             </div>
             <table style="width:100%;border-collapse:collapse">
                 <thead><tr>

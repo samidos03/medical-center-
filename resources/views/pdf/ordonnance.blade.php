@@ -41,7 +41,7 @@
         <div class="logo-sub">Plateforme de Gestion Medicale</div>
     </div>
     <div class="header-right">
-        <div>Prescription N� {{ str_pad($ordonnance->id, 4, '0', STR_PAD_LEFT) }}</div>
+        <div>Prescription N -  {{ str_pad($ordonnance->id, 4, '0', STR_PAD_LEFT) }}</div>
         <div>Date : {{ \Carbon\Carbon::parse($ordonnance->date_creation)->format('d/m/Y') }}</div>
     </div>
 </div>

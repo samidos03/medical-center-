@@ -159,8 +159,8 @@
                     <div class="rdv-left">
                         <div class="rdv-avatar">{{ strtoupper(substr($rdv->medecin->user->name??'?',0,2)) }}</div>
                         <div>
-                            <div class="rdv-doctor">{{ $rdv->medecin->user->name??'�' }}</div>
-                            <div class="rdv-spec">{{ $rdv->medecin->specialite->nom??'�' }}</div>
+                            <div class="rdv-doctor">{{ $rdv->medecin->user->name??' - ' }}</div>
+                            <div class="rdv-spec">{{ $rdv->medecin->specialite->nom??' - ' }}</div>
                         </div>
                     </div>
                     <div class="rdv-right">
@@ -195,13 +195,13 @@
                     </div>
                     @else
                     <div class="no-consult" style="background:#fefce8;border-top:1px solid #fde68a;color:#92400e">
-                        Consultation done � No prescription issued
+                        Consultation done  -  No prescription issued
                     </div>
                     @endif
                 @else
                     <div class="no-consult">
                         @if($rdv->statut==='Confirmed')
-                            Appointment confirmed � Consultation not yet done
+                            Appointment confirmed  -  Consultation not yet done
                         @elseif($rdv->statut==='Cancelled')
                             Appointment was cancelled
                         @else
