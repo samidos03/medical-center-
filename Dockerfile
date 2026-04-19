@@ -1,7 +1,7 @@
 FROM php:8.4-cli
 
 RUN apt-get update && apt-get install -y \
-    git curl zip unzip libzip-dev libpng-dev libonig-dev libxml2-dev \
+    git curl zip unzip libzip-dev libpng-dev libonig-dev libxml2-ext \
     && docker-php-ext-install pdo_mysql mbstring xml zip bcmath \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -17,4 +17,4 @@ RUN chmod -R 775 storage bootstrap/cache
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "php artisan migrate --force && php -S 0.0.0.0:${PORT:-8080} -t public"]
+CMD ["sh", "-c", "php artisan migrate --force && php -S 0.0.0.0:${PORT:-8080} -t public public/router.php"]
