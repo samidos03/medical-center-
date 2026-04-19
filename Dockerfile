@@ -1,6 +1,6 @@
 FROM php:8.4-apache
 
-RUN a2enmod rewrite
+RUN a2dismod mpm_event && a2enmod mpm_prefork && a2enmod rewrite
 
 RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 
