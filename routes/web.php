@@ -5,6 +5,10 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\MedecinController;
 use App\Http\Controllers\PatientController;
 
+Route::get('/test', function () {
+    return 'Laravel fonctionne!';
+});
+
 Route::get('/', function () {
     if (auth()->check()) {
         return match(auth()->user()->role) {
