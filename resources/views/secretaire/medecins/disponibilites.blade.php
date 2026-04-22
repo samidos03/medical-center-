@@ -149,7 +149,7 @@
                     <div class="avatar">{{ strtoupper(substr($m->user->name??'?',0,2)) }}</div>
                     <div>
                         <div class="medecin-name">{{ $m->user->name }}</div>
-                        <div class="medecin-spec">{{ $m->specialite->nom??'General' }} — {{ $m->telephone??'N/A' }}</div>
+                        <div class="medecin-spec">{{ $m->specialite->nom??'General' }}- {{ $m->telephone??'N/A' }}</div>
                     </div>
                 </div>
                 <div style="display:flex;align-items:center;gap:12px">
@@ -190,7 +190,9 @@
                                         </div>
                                     @endforeach
                                 @else
-                                    <div class="no-slot">—</div>
+                                    <div class="no-slot">
+                                    
+                                    </div>
                                 @endif
                             </div>
                         </div>
