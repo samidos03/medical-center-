@@ -1,20 +1,25 @@
 <?php
-$dir = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('resources/views'));
+$dirs = ['resources/views/medecin', 'resources/views/secretaire', 'resources/views/patient', 'resources/views/admin'];
 $count = 0;
-foreach ($dir as $file) {
-    if ($file->isFile() && $file->getExtension() === 'php') {
-        $content = file_get_contents($file->getPathname());
-        $original = $content;
-        // Remove diamond symbol and variants
-        $content = str_replace(['◆', '◇', '♦', "\xE2\x97\x86", "\xE2\x97\x87", "\xE2\x99\xA6"], ' - ', $content);
-        // Remove replacement character
-        $content = str_replace(["\xEF\xBF\xBD", '�'], ' - ', $content);
-        // Clean double separators
-        $content = str_replace(' -  - ', ' - ', $content);
-        if ($content !== $original) {
-            file_put_contents($file->getPathname(), $content);
-            echo "FIXED: " . $file->getPathname() . "\n";
-            $count++;
+foreach ($dirs as $dirPath) {
+    $dir = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dirPath));
+    foreach ($dir as $file) {
+        if ($file->isFile() && $file->getExtension() === 'php') {
+            $bytes = file_get_contents($file->getPathname());
+            $original = $bytes;
+            // Fix DeSign In -> Sign Out
+            $bytes = str_replace('DeSign In', 'Sign Out', $bytes);
+            // Fix diamond symbols (UTF-8 bytes for ◆)
+            $bytes = str_replace("\xE2\x97\x86", '-', $bytes);
+            // Fix replacement character
+            $bytes = str_replace("\xEF\xBF\xBD", '-', $bytes);
+            // Fix double dashes
+            $bytes = str_replace(' - - ', ' - ', $bytes);
+            if ($bytes !== $original) {
+                file_put_contents($file->getPathname(), $bytes);
+                echo "FIXED: " . $file->getPathname() . "\n";
+                $count++;
+            }
         }
     }
 }

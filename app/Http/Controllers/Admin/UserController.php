@@ -98,7 +98,7 @@ class UserController extends Controller
         }
 
         return redirect()->route('admin.users.index')
-            ->with('success', "Utilisateur {$user->name} créé avec succès.");
+            ->with('success', "User {$user->name} created successfully.");
     }
 
     public function edit(string $id)
@@ -163,7 +163,7 @@ class UserController extends Controller
         }
 
         return redirect()->route('admin.users.index')
-            ->with('success', "Utilisateur {$user->name} mis à jour.");
+            ->with('success', "User {$user->name}  updated successfully.");
     }
 
     public function destroy(string $id)
@@ -171,13 +171,13 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         if ($user->id === auth()->id()) {
-            return back()->with('error', 'Vous ne pouvez pas supprimer votre propre compte.');
+            return back()->with('error', 'You cannot delete your own account.');
         }
 
         $user->delete();
 
         return redirect()->route('admin.users.index')
-            ->with('success', "Utilisateur supprimé.");
+            ->with('success', "User deleted successfully.");
     }
 
     public function toggle(string $id)
@@ -189,8 +189,8 @@ class UserController extends Controller
         }
 
         $user->update(['actif' => !$user->actif]);
-        $msg = $user->actif ? 'activé' : 'désactivé';
+        $msg = $user->actif ? 'activated' : 'deactivated';
 
-        return back()->with('success', "Compte de {$user->name} {$msg}.");
+        return back()->with('success', "account of {$user->name} {$msg}.");
     }
 }
