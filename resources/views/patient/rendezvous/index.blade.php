@@ -113,7 +113,7 @@
 </aside>
 <div class="main">
     <div class="topbar">
-        <div><h1>My Appointments</h1><p>{{ $rdvs->total() }} appointments</p></div>
+        <div><h1>My Appointments</h1><p>{{  $rdvs->count() }} appointments</p></div>
         <a href="{{ route('patient.rendezvous.create') }}" class="btn-primary">+ Book Appointment</a>
     </div>
     <div class="content">

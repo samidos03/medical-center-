@@ -51,7 +51,8 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Les identifiants sont incorrects.',
+            'email' => 'Invalid credentials.',
+
         ])->withInput($request->only('email'));
     }
 
@@ -89,7 +90,7 @@ class AuthController extends Controller
         // Connecter automatiquement
         Auth::login($user);
 
-        return redirect()->route('patient.dashboard')->with('success', 'Bienvenue sur votre espace patient !');
+return redirect()->route('patient.dashboard')->with('success', 'Welcome to your patient space!');
     }
 
     public function logout(Request $request)
@@ -98,6 +99,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         
-        return redirect('/login')->with('success', 'Vous êtes déconnecté.');
+return redirect('/login')->with('success', 'You have been logged out.');
     }
 }
