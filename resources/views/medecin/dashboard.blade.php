@@ -268,7 +268,7 @@
 </div>
 
 <script>
-function toggleSidebar(){
+function toggleSidebar(){ document.getElementById('sidebar').classList.toggle('open'); document.getElementById('overlay').classList.toggle('open'); } document.querySelectorAll('.nav-item').forEach(function(l){ l.addEventListener('click',function(){ if(window.innerWidth<=768){ document.getElementById('sidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('open'); }}}); } //
     document.getElementById('sidebar').classList.toggle('open');
     document.getElementById('overlay').classList.toggle('open');
 }

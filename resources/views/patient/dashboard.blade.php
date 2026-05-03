@@ -44,7 +44,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);m
 .btn-logout:hover{background:rgba(239,68,68,.3);color:white}
 
 /* ── MAIN ── */
-.main{flex:1;margin-left:260px;min-height:100vh;display:flex;flex-direction:column;transition:margin-left .3s ease}
+.main{flex:1;margin-left:240px;min-height:100vh;display:flex;flex-direction:column;transition:margin-left .3s ease}
 .topbar{background:var(--white);border-bottom:1px solid var(--border);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;gap:12px}
 .topbar-left{display:flex;align-items:center;gap:12px}
 .topbar-title h1{font-size:17px;font-weight:700;color:var(--text-primary)}
@@ -363,6 +363,14 @@ function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('open');
   document.getElementById('overlay').classList.toggle('open');
 }
+document.querySelectorAll('.nav-item').forEach(function(link){
+  link.addEventListener('click',function(){
+    if(window.innerWidth<=768){
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+    }
+  });
+});
 window.addEventListener('resize',function(){
   if(window.innerWidth>768){
     document.getElementById('sidebar').classList.remove('open');

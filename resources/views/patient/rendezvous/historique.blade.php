@@ -208,14 +208,39 @@
 </div>
 <script>
 function toggleSidebar(){
-  document.getElementById("sidebar").classList.toggle("open");
-  document.getElementById("overlay").classList.toggle("open");
+
+  document.getElementById('sidebar').classList.toggle('open');
+
+  document.getElementById('overlay').classList.toggle('open');
+
 }
-window.addEventListener("resize",function(){
+
+document.querySelectorAll('.nav-item').forEach(function(link){
+
+  link.addEventListener('click',function(){
+
+    if(window.innerWidth<=768){
+
+      document.getElementById('sidebar').classList.remove('open');
+
+      document.getElementById('overlay').classList.remove('open');
+
+    }
+
+  });
+
+});
+
+window.addEventListener('resize',function(){
+
   if(window.innerWidth>768){
-    document.getElementById("sidebar").classList.remove("open");
-    document.getElementById("overlay").classList.remove("open");
+
+    document.getElementById('sidebar').classList.remove('open');
+
+    document.getElementById('overlay').classList.remove('open');
+
   }
+
 });
 </script>
 </body>

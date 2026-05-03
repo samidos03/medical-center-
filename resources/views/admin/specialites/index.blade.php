@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title', 'Specialities')
-@section('subtitle', 'Gestion des Specialities medicales')
+@section('subtitle', 'Manage medical specialities')
 
 @section('content')
 <div class="card">
@@ -8,7 +8,7 @@
         <h2>{{ $specialites->total() }} Specialities</h2>
         <a href="{{ route('admin.specialites.create') }}" class="btn-primary">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-            Nouvelle Speciality
+            New Speciality
         </a>
     </div>
     <table>
@@ -18,7 +18,7 @@
             <tr>
                 <td style="color:#94a3b8">{{ $s->id }}</td>
                 <td style="font-weight:600;color:#0f172a">{{ $s->nom }}</td>
-                <td><span class="pill pill-teal">{{ $s->medecins_count }} medecin(s)</span></td>
+                <td><span class="pill pill-teal">{{ $s->medecins_count }} doctor(s)</span></td>
                 <td>
                     <div style="display:flex;justify-content:flex-end;gap:6px">
                         <a href="{{ route('admin.specialites.edit', $s) }}" class="btn-secondary" style="padding:7px 12px">

@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Admin') -</title>
+    <title>@yield('title', 'Admin') — Bahjawa Medical</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
     <style>
         *{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:Segoe UI,system-ui,sans-serif;background:#f0f7ff;min-height:100vh;display:flex}
-        .sidebar{width:260px;min-height:100vh;background:linear-gradient(180deg,#0369a1,#0284c7,#0ea5e9);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:50}
+        html,body{overflow-x:hidden;max-width:100%}
+        body{font-family:Segoe UI,system-ui,sans-serif;background:#f0f7ff;min-height:100vh;display:flex;color:#0f172a}
+        .sidebar{width:260px;min-height:100vh;background:linear-gradient(180deg,#0369a1,#0284c7,#0ea5e9);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:50;transition:transform .3s ease}
         .sidebar-logo{padding:24px 20px;border-bottom:1px solid rgba(255,255,255,.12)}
         .logo-inner{display:flex;align-items:center;gap:10px}
         .logo-icon{width:40px;height:40px;background:white;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -28,16 +29,18 @@
         .user-role{font-size:11px;color:rgba(255,255,255,.6)}
         .btn-logout{width:100%;margin-top:8px;padding:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;color:rgba(255,255,255,.8);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
         .btn-logout:hover{background:rgba(239,68,68,.3);color:white}
-        .main{flex:1;margin-left:260px;min-height:100vh;display:flex;flex-direction:column}
-        .topbar{background:white;border-bottom:1px solid #e2e8f0;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40}
+        .main{flex:1;margin-left:260px;min-height:100vh;display:flex;flex-direction:column;min-width:0;overflow-x:hidden;transition:margin-left .3s ease}
+        .topbar{background:white;border-bottom:1px solid #e2e8f0;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;gap:12px}
+        .topbar-left{display:flex;align-items:center;gap:12px}
         .topbar-left h1{font-size:18px;font-weight:700;color:#0f172a}
         .topbar-left p{font-size:12px;color:#94a3b8;margin-top:2px}
-        .topbar-date{font-size:13px;color:#64748b;background:#f8fafc;padding:6px 14px;border-radius:10px;border:1px solid #e2e8f0}
-        .content{padding:24px 28px;flex:1}
+        .topbar-date{font-size:13px;color:#64748b;background:#f8fafc;padding:6px 14px;border-radius:10px;border:1px solid #e2e8f0;white-space:nowrap}
+        .hamburger{display:none;width:36px;height:36px;border-radius:10px;border:1px solid #e2e8f0;background:white;align-items:center;justify-content:center;cursor:pointer;color:#64748b;flex-shrink:0}
+        .content{padding:24px 28px;flex:1;min-width:0;overflow-x:hidden}
         .card{background:white;border-radius:18px;border:1px solid #e2e8f0;overflow:hidden}
-        .card-header{padding:18px 22px;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between}
+        .card-header{padding:18px 22px;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
         .card-header h2{font-size:15px;font-weight:700;color:#0f172a}
-        .btn-primary{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0ea5e9,#0369a1);color:white;border:none;border-radius:10px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:opacity .2s}
+        .btn-primary{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0ea5e9,#0369a1);color:white;border:none;border-radius:10px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:opacity .2s;white-space:nowrap}
         .btn-primary:hover{opacity:.9}
         .btn-secondary{display:inline-flex;align-items:center;gap:6px;background:#f8fafc;color:#374151;border:1px solid #e2e8f0;border-radius:10px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s}
         .btn-secondary:hover{background:#f1f5f9}
@@ -80,10 +83,46 @@
         .stat-mini{background:white;border-radius:14px;border:1px solid #e2e8f0;padding:14px;text-align:center}
         .stat-mini-num{font-size:22px;font-weight:700}
         .stat-mini-label{font-size:11px;color:#64748b;margin-top:2px}
+        .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:49}
+        .overlay.open{display:block}
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:1200px){
+          .stats-mini{grid-template-columns:repeat(3,1fr)}
+          .grid3{grid-template-columns:1fr 1fr}
+        }
+        @media(max-width:900px){
+          .grid2{grid-template-columns:1fr}
+          .grid3{grid-template-columns:1fr}
+          .stats-mini{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:768px){
+          .hamburger{display:flex}
+          .sidebar{transform:translateX(-100%)}
+          .sidebar.open{transform:translateX(0)}
+          .main{margin-left:0}
+          .topbar{padding:12px 14px 12px 56px}
+          .topbar-left h1{font-size:15px}
+          .topbar-date{display:none}
+          .content{padding:16px 12px}
+          table thead{display:none}
+          table tr{display:flex;flex-direction:column;padding:10px 14px;border-bottom:1px solid #e2e8f0}
+          table td{padding:3px 0;border:none;font-size:12px}
+          table td::before{content:attr(data-label);font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;display:block;margin-bottom:2px}
+          .card-header{flex-direction:column;align-items:flex-start}
+          .stats-mini{grid-template-columns:1fr 1fr}
+        }
+        @media(max-width:480px){
+          .topbar-left p{display:none}
+          .stats-mini{grid-template-columns:1fr 1fr}
+        }
     </style>
 </head>
 <body>
-<aside class="sidebar">
+
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
         <div class="logo-inner">
             <div class="logo-icon">
@@ -139,11 +178,17 @@
         </div>
     </div>
 </aside>
-<div class="main">
+
+<div class="main" id="main">
     <div class="topbar">
         <div class="topbar-left">
-            <h1>@yield('title', 'Dashboard')</h1>
-            <p>@yield('subtitle', '')</p>
+            <button class="hamburger" onclick="toggleSidebar()">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <div>
+                <h1>@yield('title', 'Dashboard')</h1>
+                <p>@yield('subtitle', '')</p>
+            </div>
         </div>
         <div class="topbar-date">{{ now()->format('d/m/Y') }}</div>
     </div>
@@ -157,15 +202,28 @@
         @yield('content')
     </div>
 </div>
+
 @stack('scripts')
+
+<script>
+function toggleSidebar(){
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('open');
+}
+document.querySelectorAll('.nav-item').forEach(function(link){
+    link.addEventListener('click',function(){
+        if(window.innerWidth<=768){
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('overlay').classList.remove('open');
+        }
+    });
+});
+window.addEventListener('resize',function(){
+    if(window.innerWidth>768){
+        document.getElementById('sidebar').classList.remove('open');
+        document.getElementById('overlay').classList.remove('open');
+    }
+});
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
