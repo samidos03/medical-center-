@@ -9,6 +9,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 COPY . .
+RUN rm -f .env
 
 RUN composer install --no-dev --optimize-autoloader --no-scripts --no-interaction
 RUN composer dump-autoload --optimize
