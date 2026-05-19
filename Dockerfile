@@ -1,10 +1,9 @@
-FROM php:8.3-fpm-alpine
+FROM php:8.2-cli
 
-RUN apk add --no-cache \
-    git curl zip unzip \
-    libzip-dev libpng-dev libonig-dev libxml2-dev oniguruma-dev \
-    nginx supervisor \
-    && docker-php-ext-install pdo_mysql mbstring xml zip bcmath gd opcache
+RUN apt-get update && apt-get install -y \
+    git curl zip unzip libzip-dev libpng-dev libonig-dev libxml2-dev \
+    && docker-php-ext-install pdo_mysql mbstring xml zip bcmath gd opcache \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -13,11 +12,7 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-RUN cp .env.example .env 2>/dev/null || true
-RUN php artisan config:clear
-
-RUN chmod -R 775 storage bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
 
 EXPOSE 8080
 
