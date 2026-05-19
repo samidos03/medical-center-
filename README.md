@@ -81,30 +81,9 @@
 - MySQL 8.0+
 - Node.js & NPM
 
-### Étapes d'installation
+Auteur
+Oussama Samid - PFE 2025/2026
 
-```bash
-# 1. Cloner le dépôt
-git clone https://github.com/samidos03/medical-center-.git
-cd medical-center-
+SAMID Oussama FARAH Mariam DOUBABI Ali ECHCHAFIAI Aicha
 
-# 2. Installer les dépendances PHP
-composer install
-
-# 3. Installer les dépendances frontend
-npm install && npm run build
-
-# 4. Configurer l'environnement
-cp .env.example .env
-php artisan key:generate
-
-# 5. Configurer le fichier .env avec vos informations de base de données
-# DB_DATABASE=medical_center
-# DB_USERNAME=root
-# DB_PASSWORD=
-
-# 6. Migrer et seed la base de données
-php artisan migrate --seed
-
-# 7. Lancer le serveur
-php artisan serve
+2025-2026 
