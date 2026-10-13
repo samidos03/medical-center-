@@ -1,82 +1,65 @@
- # 🏥 Bahjawa Medical Center
+# 🏥 Bahjawa Medical Center
 
-[![Laravel](https://img.shields.io/badge/Laravel-13.5-red.svg)](https://laravel.com/)
-[![PHP](https://img.shields.io/badge/PHP-8.4-blue.svg)](https://php.net/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-green.svg)](https://mysql.com/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-cyan.svg)](https://tailwindcss.com/)
-[![Railway](https://img.shields.io/badge/Railway-Deployed-purple.svg)](https://railway.app/)
+**Laravel · PHP · MySQL · Tailwind CSS · Railway**
 
-**Application web de gestion d'un cabinet médical** développée avec Laravel 13, PHP 8.4, MySQL, Tailwind CSS et DomPDF.
+A web-based medical clinic management system built with Laravel 13, PHP 8.4, MySQL, Tailwind CSS, and DomPDF.
 
-🌐 **Lien de l'application déployée :** [https://medical-center-bahjawi.up.railway.app](https://medical-center-bahjawi.up.railway.app)
+🌐 **Live Demo:** https://medical-center-bahjawi.up.railway.app
 
----
+## 📸 Application Preview
 
-## 📸 Aperçu de l'application
- <div align="center">
-  <img src="images/login.png" alt="Interface de connexion" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border: 1px solid #e2e8f0;"/>
-  <br/>
-  <em>Figure 1 : Interface de connexion utilisateur</em>
-</div>
-<div align="center">
-  <img src="images/Dashboard principal.png" alt="Dashboard principal Bahjawa Medical Center" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border: 1px solid #e2e8f0;"/>
-  <br/>
-  <em>Figure 2 : Dashboard principal - Vue d'ensemble du cabinet</em>
-</div>
+### Login Page
+*Figure 1: User login interface*
 
-<br/>
+### Main Dashboard
+*Figure 2: Bahjawa Medical Center main dashboard — clinic overview*
 
-<div align="center">
-  <img src="images/RDV.png" alt="Gestion des rendez-vous" width="800" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border: 1px solid #e2e8f0;"/>
-  <br/>
-  <em>Figure 3 : Interface de gestion des rendez-vous</em>
-</div>
- 
+### Appointment Management
+*Figure 3: Appointment management interface*
 
----
+## ✨ Features
 
-## ✨ Fonctionnalités
+### 👥 Multi-Role Authentication
 
-### 👥 Authentification multi-rôles
-| Rôle | Accès |
-|------|-------|
-| 👑 Admin | Accès total à toutes les fonctionnalités |
-| 👨‍⚕️ Médecin | Consultation des patients, prescriptions, gestion des disponibilités |
-| 📋 Secrétaire | Gestion des rendez-vous, saisie des patients |
-| 🧑 Patient | Prise de rendez-vous, historique, ordonnances |
+| Role | Permissions |
+|---|---|
+| 👑 Administrator | Full access to all application features |
+| 👨‍⚕️ Doctor | Patient consultations, prescription management, and availability scheduling |
+| 📋 Secretary | Appointment management and patient registration |
+| 🧑 Patient | Appointment booking, medical history, and prescription access |
 
-### 🔧 Modules principaux
+### 🔧 Core Modules
 
-- ✅ **Gestion des utilisateurs** (CRUD complet)
-- ✅ **Gestion des rendez-vous** avec statuts (en attente, confirmé, annulé)
-- ✅ **Gestion des consultations médicales**
-- ✅ **Génération de prescriptions/ordonnances en PDF** (DomPDF)
-- ✅ **Gestion des disponibilités des médecins**
-- ✅ **Notifications email** (Mailtrap en environnement local)
-- ✅ **Dashboard avec statistiques** pour chaque rôle
-- ✅ **Espace patient** avec historique et prise de rendez-vous
-- ✅ **Export PDF** des ordonnances
+- ✅ **User Management:** Full CRUD operations (Create, Read, Update, Delete).
+- ✅ **Appointment Management:** Manage appointments with statuses such as pending, confirmed, and cancelled.
+- ✅ **Medical Consultation Management:** Manage patient consultations.
+- ✅ **PDF Prescription Generation:** Generate and export medical prescriptions using DomPDF.
+- ✅ **Doctor Availability Management:** Manage doctors' available time slots.
+- ✅ **Email Notifications:** Email notifications using Mailtrap in the local development environment.
+- ✅ **Role-Based Dashboards:** Dedicated dashboards with statistics for each user role.
+- ✅ **Patient Portal:** Access appointment history and book new appointments.
+- ✅ **PDF Export:** Export medical prescriptions as PDF documents.
 
----
+## 🛠️ Tech Stack
 
-## 🛠️ Stack technique
-
-| Catégorie | Technologie |
-|-----------|-------------|
+| Category | Technology |
+|---|---|
 | Backend | Laravel 13.5, PHP 8.4 |
-| Base de données | MySQL 8.0 |
+| Database | MySQL 8.0 |
 | Frontend | Tailwind CSS 3.4, Blade Templates |
 | PDF Generation | barryvdh/laravel-dompdf |
 | Email | Mailtrap (SMTP sandbox) |
-| Déploiement | Railway (Docker) |
-| Versioning | Git / GitHub |
+| Deployment | Railway with Docker |
+| Version Control | Git and GitHub |
 
----
+## 📦 Local Installation
 
-## 📦 Installation locale
+### Prerequisites
 
-### Prérequis
-- PHP 8.4+
+Make sure the following tools are installed on your machine:
+
+- PHP 8.4 or later
 - Composer
-- MySQL 8.0+
-- Node.js & NPM
+- MySQL 8.0 or later
+- Node.js and npm
+
