@@ -66,20 +66,27 @@ Make sure the following tools are installed on your machine:
 * MySQL 8.0 or later
 * Node.js and npm
 * \## 📸 Application Screenshots
+* \## Application Screenshots
 * 
 * \### Main Interface
+* 
 * !\[Main Interface](images/1.png)
+* 
 * !\[Second Interface](images/2.png)
 * 
 * \### Admin Dashboard
+* 
 * !\[Admin Dashboard](images/admin.png)
 * 
 * \### Doctor Dashboard
+* 
 * !\[Doctor Dashboard](images/doctor.png)
 * 
 * \### Patient Dashboard
+* 
 * !\[Patient Dashboard](images/patient.png)
 * 
 * \### Secretary Dashboard
+* 
 * !\[Secretary Dashboard](images/secretary.png)
 
