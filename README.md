@@ -67,7 +67,6 @@ Make sure the following tools are installed on your machine:
 * Node.js and npm
 * \## 📸 Application Screenshots
 * \## 📸 Application Preview
-* 
 * \### Login Page
 * 
 * !\[Login Page](images/login.png)
@@ -76,7 +75,7 @@ Make sure the following tools are installed on your machine:
 * 
 * \### Main Dashboard
 * 
-* !\[Main Dashboard](images/Dashboard%20principal.png)
+* !\[Main Dashboard](images/dashboard.png)
 * 
 * \*Figure 2: Bahjawa Medical Center main dashboard — clinic overview\*
 * 
@@ -85,4 +84,27 @@ Make sure the following tools are installed on your machine:
 * !\[Appointment Management](images/RDV.png)
 * 
 * \*Figure 3: Appointment management interface\*
+* \## Application Screenshots
+* 
+* \### Main Interface
+* 
+* !\[Main Interface](images/1.png)
+* 
+* !\[Second Interface](images/2.png)
+* 
+* \### Admin Dashboard
+* 
+* !\[Admin Dashboard](images/admin.png)
+* 
+* \### Doctor Dashboard
+* 
+* !\[Doctor Dashboard](images/doctor.png)
+* 
+* \### Patient Dashboard
+* 
+* !\[Patient Dashboard](images/patient.png)
+* 
+* \### Secretary Dashboard
+* 
+* !\[Secretary Dashboard](images/secretary.png)
 
