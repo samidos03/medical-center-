@@ -64,9 +64,10 @@ Make sure the following tools are installed on your machine:
 * PHP 8.4 or later
 * Composer
 * MySQL 8.0 or later
-* Node.js and npm
-* \## 📸 Application Screenshots
-* \## 📸 Application Preview
+* \* Node.js and npm
+* 
+* \## Application Preview
+* 
 * \### Login Page
 * 
 * !\[Login Page](images/login.png)
@@ -84,6 +85,7 @@ Make sure the following tools are installed on your machine:
 * !\[Appointment Management](images/RDV.png)
 * 
 * \*Figure 3: Appointment management interface\*
+* 
 * \## Application Screenshots
 * 
 * \### Main Interface
