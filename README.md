@@ -1,4 +1,4 @@
-# 🏥 Bahjawa Medical Center
+﻿# 🏥 Bahjawa Medical Center
 
 **Laravel · PHP · MySQL · Tailwind CSS · Railway**
 
@@ -66,47 +66,47 @@ Make sure the following tools are installed on your machine:
 * MySQL 8.0 or later
 * \* Node.js and npm
 * 
-* \## Application Preview
+## Application Preview
 * 
-* \### Login Page
+### Login Page
 * 
-* !\[Login Page](images/login.png)
+![Login Page](images/login.png)
 * 
 * \*Figure 1: User login interface\*
 * 
-* \### Main Dashboard
+### Main Dashboard
 * 
-* !\[Main Dashboard](images/dashboard.png)
+![Main Dashboard](images/dashboard.png)
 * 
 * \*Figure 2: Bahjawa Medical Center main dashboard — clinic overview\*
 * 
-* \### Appointment Management
+### Appointment Management
 * 
-* !\[Appointment Management](images/RDV.png)
+![Appointment Management](images/RDV.png)
 * 
 * \*Figure 3: Appointment management interface\*
 * 
-* \## Application Screenshots
+## Application Screenshots
 * 
-* \### Main Interface
+### Main Interface
 * 
-* !\[Main Interface](images/1.png)
+![Main Interface](images/1.png)
 * 
-* !\[Second Interface](images/2.png)
+![Second Interface](images/2.png)
 * 
-* \### Admin Dashboard
+### Admin Dashboard
 * 
-* !\[Admin Dashboard](images/admin.png)
+![Admin Dashboard](images/admin.png)
 * 
-* \### Doctor Dashboard
+### Doctor Dashboard
 * 
-* !\[Doctor Dashboard](images/doctor.png)
+![Doctor Dashboard](images/doctor.png)
 * 
-* \### Patient Dashboard
+### Patient Dashboard
 * 
-* !\[Patient Dashboard](images/patient.png)
+![Patient Dashboard](images/patient.png)
 * 
-* \### Secretary Dashboard
+### Secretary Dashboard
 * 
-* !\[Secretary Dashboard](images/secretary.png)
+![Secretary Dashboard](images/secretary.png)
 
