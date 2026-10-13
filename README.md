@@ -66,7 +66,6 @@ Make sure the following tools are installed on your machine:
 * MySQL 8.0 or later
 * Node.js and npm
 * \## 📸 Application Screenshots
-* \## Application Screenshots
 * 
 * \### Main Interface
 * 
