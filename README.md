@@ -66,26 +66,23 @@ Make sure the following tools are installed on your machine:
 * MySQL 8.0 or later
 * Node.js and npm
 * \## 📸 Application Screenshots
+* \## 📸 Application Preview
 * 
-* \### Main Interface
+* \### Login Page
 * 
-* !\[Main Interface](images/1.png)
+* !\[Login Page](images/login.png)
 * 
-* !\[Second Interface](images/2.png)
+* \*Figure 1: User login interface\*
 * 
-* \### Admin Dashboard
+* \### Main Dashboard
 * 
-* !\[Admin Dashboard](images/admin.png)
+* !\[Main Dashboard](images/Dashboard%20principal.png)
 * 
-* \### Doctor Dashboard
+* \*Figure 2: Bahjawa Medical Center main dashboard — clinic overview\*
 * 
-* !\[Doctor Dashboard](images/doctor.png)
+* \### Appointment Management
 * 
-* \### Patient Dashboard
+* !\[Appointment Management](images/RDV.png)
 * 
-* !\[Patient Dashboard](images/patient.png)
-* 
-* \### Secretary Dashboard
-* 
-* !\[Secretary Dashboard](images/secretary.png)
+* \*Figure 3: Appointment management interface\*
 
